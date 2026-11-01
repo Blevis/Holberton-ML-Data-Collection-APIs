@@ -19,9 +19,7 @@ def sentientPlanets():
             if classification == "sentient" or designation == "sentient":
                 homeworld = species["homeworld"]
 
-                if homeworld is None:
-                    planets.append("unknown")
-                else:
+                if homeworld is not None:
                     planet_response = requests.get(homeworld)
                     planet_data = planet_response.json()
                     planets.append(planet_data["name"])
